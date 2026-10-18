@@ -1,0 +1,10 @@
+# Shell scripts are run on Linux and macOS (and by sh on Windows): keep their line endings LF
+# whatever the machine checking them out.
+*.sh text eol=lf
+
+# The toolkit copy has to stay byte-for-byte what its tools/sync-toolkit.sh recorded, because
+# `make check-toolkit` hashes it. Never let git rewrite its line endings.
+cps2recomp/** -text
+
+# Binary: never touch it.
+*.png binary
